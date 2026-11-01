@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171717"><meta name="description" content="Carte de fidélité So info">
+<link rel="manifest" href="manifest.json"><link rel="stylesheet" href="style.css"><title>So info — Fidélité</title></head>
+<body><header><div class="brand">SO <span>INFO</span></div><div class="tag">FIDÉLITÉ</div></header>
+<main><section class="hero"><p class="eyebrow">VOTRE FIDÉLITÉ RÉCOMPENSÉE</p><h1>10 passages<br> = 1 cadeau</h1><p>Un article informatique offert parmi notre sélection.</p></section>
+<section class="panel"><h2>Ma carte fidélité</h2><label for="customer">Nom du client</label><input id="customer" placeholder="Ex. Camille Martin" autocomplete="name">
+<div class="progress"><div><strong id="count">0</strong><span> / 10 tampons</span></div><span id="status">Encore 10 passages !</span></div>
+<div id="stamps" class="stamps" aria-label="Progression des tampons"></div>
+<div id="reward" class="reward" hidden>🎁 Bravo ! Votre cadeau est débloqué.</div>
+<p class="note">Prototype de démonstration : les données restent dans ce navigateur.</p></section>
+<section class="panel admin"><h2>Espace commerçant</h2><p>Cette version de démonstration permet de tester l'ajout de tampons sur cet appareil uniquement.</p>
+<label for="pin">Code administrateur de démonstration</label><input id="pin" type="password" inputmode="numeric" placeholder="Code de démonstration">
+<button id="add">Ajouter un tampon</button><button id="reset" class="secondary">Réinitialiser la carte</button><p id="message" role="status"></p>
+</section></main><footer>© So info · Carte de fidélité</footer><script src="app.js"></script></body></html>

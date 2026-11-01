@@ -1,0 +1,8 @@
+const KEY='so-info-demo-card-v1';const customer=document.querySelector('#customer'),pin=document.querySelector('#pin'),count=document.querySelector('#count'),status=document.querySelector('#status'),stamps=document.querySelector('#stamps'),reward=document.querySelector('#reward'),message=document.querySelector('#message');
+let state=JSON.parse(localStorage.getItem(KEY)||'{"name":"","points":0}');
+function save(){localStorage.setItem(KEY,JSON.stringify(state));render()}
+function render(){customer.value=state.name;count.textContent=state.points;status.textContent=state.points>=10?'Récompense disponible !':`Encore ${10-state.points} passage(s) !`;stamps.innerHTML='';for(let i=0;i<10;i++){const d=document.createElement('div');d.className='stamp'+(i<state.points?' done':'');d.textContent=i<state.points?'★':'☆';stamps.append(d)}reward.hidden=state.points<10}
+customer.addEventListener('change',()=>{state.name=customer.value.trim();save()});
+document.querySelector('#add').addEventListener('click',()=>{if(pin.value!=='SOINFO-DEMO'){message.textContent='Code de démonstration incorrect.';return}if(!state.name){message.textContent='Saisis d’abord le nom du client.';return}if(state.points>=10){message.textContent='Récompense déjà débloquée. Réinitialise après remise du cadeau.';return}state.points++;save();message.textContent=state.points===10?'Cadeau débloqué !':`Tampon ajouté : ${state.points}/10.`});
+document.querySelector('#reset').addEventListener('click',()=>{if(pin.value!=='SOINFO-DEMO'){message.textContent='Code de démonstration incorrect.';return}if(!confirm('Confirmer la remise du cadeau et la remise à zéro ?'))return;state.points=0;save();message.textContent='Carte remise à zéro.'});
+render();
