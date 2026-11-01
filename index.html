@@ -1,15 +1,8 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#171717"><meta name="description" content="Carte de fidélité So info">
-<link rel="manifest" href="manifest.json"><link rel="stylesheet" href="style.css"><title>So info — Fidélité</title></head>
-<body><header><div class="brand">SO <span>INFO</span></div><div class="tag">FIDÉLITÉ</div></header>
-<main><section class="hero"><p class="eyebrow">VOTRE FIDÉLITÉ RÉCOMPENSÉE</p><h1>10 passages<br> = 1 cadeau</h1><p>Un article informatique offert parmi notre sélection.</p></section>
-<section class="panel"><h2>Ma carte fidélité</h2><label for="customer">Nom du client</label><input id="customer" placeholder="Ex. Camille Martin" autocomplete="name">
-<div class="progress"><div><strong id="count">0</strong><span> / 10 tampons</span></div><span id="status">Encore 10 passages !</span></div>
-<div id="stamps" class="stamps" aria-label="Progression des tampons"></div>
-<div id="reward" class="reward" hidden>🎁 Bravo ! Votre cadeau est débloqué.</div>
-<p class="note">Prototype de démonstration : les données restent dans ce navigateur.</p></section>
-<section class="panel admin"><h2>Espace commerçant</h2><p>Cette version de démonstration permet de tester l'ajout de tampons sur cet appareil uniquement.</p>
-<label for="pin">Code administrateur de démonstration</label><input id="pin" type="password" inputmode="numeric" placeholder="Code de démonstration">
-<button id="add">Ajouter un tampon</button><button id="reset" class="secondary">Réinitialiser la carte</button><p id="message" role="status"></p>
-</section></main><footer>© So info · Carte de fidélité</footer><script src="app.js"></script></body></html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#171717"><meta name="description" content="Carte de fidélité So info"><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="style.css"><title>So info — Fidélité</title></head>
+<body><header><div class="brand">SO <span>INFO</span></div><div class="tag">FIDÉLITÉ</div></header><main>
+<section class="hero"><p class="eyebrow">VOTRE FIDÉLITÉ RÉCOMPENSÉE</p><h1>10 passages<br> = 1 cadeau</h1><p>Un article informatique offert parmi notre sélection.</p></section>
+<section id="loginPanel" class="panel"><h2>Connexion commerçant</h2><form id="loginForm"><label for="email">E-mail</label><input id="email" type="email" autocomplete="username" required><label for="password">Mot de passe</label><input id="password" type="password" autocomplete="current-password" required><button>Se connecter</button></form></section>
+<div id="workspace" hidden><section class="panel"><div class="heading-row"><h2>Clients</h2><button id="logout" class="small secondary">Déconnexion</button></div><label for="search">Rechercher un client</label><input id="search" placeholder="Nom, prénom ou téléphone"><select id="clientList" aria-label="Choisir un client"><option value="">Sélectionner un client</option></select><h3>Créer un client</h3><form id="createForm"><label for="firstName">Prénom</label><input id="firstName" required maxlength="100"><label for="lastName">Nom</label><input id="lastName" required maxlength="100"><label for="phone">Téléphone (facultatif)</label><input id="phone" type="tel"><label for="clientEmail">E-mail (facultatif)</label><input id="clientEmail" type="email"><button>Créer la carte</button></form></section>
+<section class="panel"><h2>Carte de fidélité</h2><p id="selectedName">Sélectionne un client.</p><div class="progress"><div><strong id="count">0</strong><span> / 10 tampons</span></div><span id="status">Encore 10 passages !</span></div><div id="stamps" class="stamps" aria-label="Progression des tampons"></div><div id="reward" class="reward" hidden>🎁 Bravo ! Le cadeau est débloqué.</div><button id="add" disabled>Ajouter un tampon</button><button id="reset" class="secondary" disabled>Confirmer la remise du cadeau</button><h3>Historique</h3><ul id="history"></ul></section></div>
+<p id="message" role="status" aria-live="polite"></p></main><footer>© So info · Carte de fidélité</footer><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script><script src="app.js"></script></body></html>
