@@ -1,7 +1,7 @@
 'use strict';
-const URL='https://vmenybnuyiwtxazstydk.supabase.co';
+const SUPABASE_URL='https://vmenybnuyiwtxazstydk.supabase.co';
 const PUBLISHABLE_KEY='sb_publishable_c2fj1vnsKwhxVY2IHI0RuA_J_jefH6G';
-const db=window.supabase.createClient(URL,PUBLISHABLE_KEY);
+const db=window.supabase.createClient(SUPABASE_URL,PUBLISHABLE_KEY);
 const el=id=>document.getElementById(id);
 let clients=[],selected=null,busy=false;
 function notice(text){el('message').textContent=text}
